@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `food-order`
+-- Database: `photo-order`
 --
 
 -- --------------------------------------------------------
@@ -63,18 +63,18 @@ CREATE TABLE `tbl_category` (
 --
 
 INSERT INTO `tbl_category` (`id`, `title`, `image_name`, `featured`, `active`) VALUES
-(4, 'Pizza', 'Food_Category_790.jpg', 'Yes', 'Yes'),
-(5, 'Burger', 'Food_Category_344.jpg', 'Yes', 'Yes'),
-(6, 'MoMo', 'Food_Category_77.jpg', 'Yes', 'Yes'),
-(8, 'Quia est ipsum id id', 'Food_Category_929.jpg', 'No', 'Yes');
+(4, 'Pizza', 'photo_Category_790.jpg', 'Yes', 'Yes'),
+(5, 'Burger', 'photo_Category_344.jpg', 'Yes', 'Yes'),
+(6, 'MoMo', 'photo_Category_77.jpg', 'Yes', 'Yes'),
+(8, 'Quia est ipsum id id', 'photo_Category_929.jpg', 'No', 'Yes');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_food`
+-- Table structure for table `tbl_photo`
 --
 
-CREATE TABLE `tbl_food` (
+CREATE TABLE `tbl_photo` (
   `id` int(10) UNSIGNED NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` text NOT NULL,
@@ -86,15 +86,15 @@ CREATE TABLE `tbl_food` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_food`
+-- Dumping data for table `tbl_photo`
 --
 
-INSERT INTO `tbl_food` (`id`, `title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
+INSERT INTO `tbl_photo` (`id`, `title`, `description`, `price`, `image_name`, `category_id`, `featured`, `active`) VALUES
 (3, 'Historical Place', 'Grab the most gorgeous shots of renowned historical places', '5.00', 'image3.jpg', 6, 'Yes', 'Yes'),
 (4, 'Landscape', 'If you are a nature lover, these landscape are for you', '4.00', 'image2.jpg.jpg', 5, 'Yes', 'Yes'),
-(5, 'Smoky BBQ Pizza', 'Best Firewood Pizza in Town.', '6.00', 'Food-Name-8298.jpg', 4, 'No', 'Yes'),
-(6, 'Sadeko Momo', 'Best Spicy Momo for Winter', '6.00', 'Food-Name-7387.jpg', 6, 'Yes', 'Yes'),
-(7, 'Mixed Pizza', 'Pizza with chicken, Ham, Buff, Mushroom and Vegetables', '10.00', 'Food-Name-7833.jpg', 4, 'Yes', 'Yes'),
+(5, 'Smoky BBQ Pizza', 'Best Firewood Pizza in Town.', '6.00', 'photo-Name-8298.jpg', 4, 'No', 'Yes'),
+(6, 'Sadeko Momo', 'Best Spicy Momo for Winter', '6.00', 'photo-Name-7387.jpg', 6, 'Yes', 'Yes'),
+(7, 'Mixed Pizza', 'Pizza with chicken, Ham, Buff, Mushroom and Vegetables', '10.00', 'photo-Name-7833.jpg', 4, 'Yes', 'Yes'),
 (8, 'Sed ipsum cillum in', 'Sed aut officiis qui', '52.00', '', 5, 'No', 'No');
 
 -- --------------------------------------------------------
@@ -105,7 +105,7 @@ INSERT INTO `tbl_food` (`id`, `title`, `description`, `price`, `image_name`, `ca
 
 CREATE TABLE `tbl_order` (
   `id` int(10) UNSIGNED NOT NULL,
-  `food` varchar(150) NOT NULL,
+  `photo` varchar(150) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `qty` int(11) NOT NULL,
   `total` decimal(10,2) NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE `tbl_order` (
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`id`, `food`, `price`, `qty`, `total`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES
+INSERT INTO `tbl_order` (`id`, `photo`, `price`, `qty`, `total`, `order_date`, `status`, `customer_name`, `customer_contact`, `customer_email`, `customer_address`) VALUES
 (1, 'Sadeko Momo', '6.00', 3, '18.00', '2020-11-30 03:49:48', 'Cancelled', 'Bradley Farrell', '+1 (576) 504-4657', 'zuhafiq@mailinator.com', 'Duis aliqua Qui lor'),
 (2, 'Best Burger', '4.00', 4, '16.00', '2020-11-30 03:52:43', 'Delivered', 'Kelly Dillard', '+1 (908) 914-3106', 'fexekihor@mailinator.com', 'Incidunt ipsum ad d'),
 (3, 'Mixed Pizza', '10.00', 2, '20.00', '2020-11-30 04:07:17', 'Delivered', 'Jana Bush', '+1 (562) 101-2028', 'tydujy@mailinator.com', 'Minima iure ducimus');
@@ -143,9 +143,9 @@ ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_food`
+-- Indexes for table `tbl_photo`
 --
-ALTER TABLE `tbl_food`
+ALTER TABLE `tbl_photo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -171,9 +171,9 @@ ALTER TABLE `tbl_category`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_food`
+-- AUTO_INCREMENT for table `tbl_photo`
 --
-ALTER TABLE `tbl_food`
+ALTER TABLE `tbl_photo`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --

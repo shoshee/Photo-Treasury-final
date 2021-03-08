@@ -1,6 +1,6 @@
 /* 
     Author: Vijay Thapa;
-    Theme: Restaurant Food Order;
+    Theme: Restaurant photos Order;
     version: 1.0;
 */
 
@@ -116,9 +116,9 @@ fieldset{
 }
 
 
-/* CSS for Food SEarch Section */
+/* CSS for photos SEarch Section */
 
-.food-search{
+.photos-search{
     /* background-image: url(../images/bg.jpg); */
     background-color: aquamarine;
     background-size: cover;
@@ -127,7 +127,7 @@ fieldset{
     padding: 7% 0;
 }
 
-.food-search input[type="search"]{
+.photos-search input[type="search"]{
     width: 50%;
     padding: 1%;
     font-size: 1rem;
@@ -148,12 +148,12 @@ fieldset{
 }
 
 
-/* CSS for Food Menu */
-.food-menu{
+/* CSS for photos Menu */
+.photos-menu{
     background-color: #ececec;
     padding: 4% 0;
 }
-.food-menu-box{
+.photos-menu-box{
     width: 43%;
     margin: 1%;
     padding: 2%;
@@ -162,22 +162,22 @@ fieldset{
     border-radius: 15px;
 }
 
-.food-menu-img{
+.photos-menu-img{
     width: 20%;
     float: left;
 }
 
-.food-menu-desc{
+.photos-menu-desc{
     width: 70%;
     float: left;
     margin-left: 8%;
 }
 
-.food-price{
+.photos-price{
     font-size: 1.2rem;
     margin: 2% 0;
 }
-.food-detail{
+.photos-detail{
     font-size: 1rem;
     color: #747d8c;
 }
@@ -225,7 +225,7 @@ fieldset{
         text-align: center;
     }
 
-    .food-search input[type="search"]{
+    .photos-search input[type="search"]{
         width: 90%;
         padding: 2%;
         margin-bottom: 3%;
@@ -236,7 +236,7 @@ fieldset{
         padding: 2%;
     }
 
-    .food-search{
+    .photos-search{
         padding: 10% 0;
     }
 
@@ -251,11 +251,11 @@ fieldset{
         margin: 4% auto;
     }
 
-    .food-menu{
+    .photos-menu{
         padding: 20% 0;
     }
 
-    .food-menu-box{
+    .photos-menu-box{
         width: 90%;
         padding: 5%;
         margin-bottom: 5%;

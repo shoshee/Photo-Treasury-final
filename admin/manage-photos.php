@@ -57,7 +57,7 @@
 
                     <?php 
                         //Create a SQL Query to Get all the Food
-                        $sql = "SELECT * FROM tbl_food";
+                        $sql = "SELECT * FROM tbl_photo";
 
                         //Execute the qUery
                         $res = mysqli_query($conn, $sql);
@@ -99,7 +99,7 @@
                                             {
                                                 //WE Have Image, Display Image
                                                 ?>
-                                                <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" width="100px">
+                                                <img src="<?php echo SITEURL; ?>images/photos/<?php echo $image_name; ?>" width="100px">
                                                 <?php
                                             }
                                         ?>
@@ -107,8 +107,8 @@
                                     <td><?php echo $featured; ?></td>
                                     <td><?php echo $active; ?></td>
                                     <td>
-                                        <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
-                                        <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
+                                        <a href="<?php echo SITEURL; ?>admin/update-photo.php?id=<?php echo $id; ?>" class="btn-secondary">Update Photos</a>
+                                        <a href="<?php echo SITEURL; ?>admin/delete-photo.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Photos</a>
                                     </td>
                                 </tr>
 

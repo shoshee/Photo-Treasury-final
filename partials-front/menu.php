@@ -32,7 +32,7 @@
                         <a href="<?php echo SITEURL; ?>categories.php">Categories</a>
                     </li> -->
                     <li>
-                        <a href="<?php echo SITEURL; ?>foods.php">Photos</a>
+                        <a href="<?php echo SITEURL; ?>photos.php">Photos</a>
                     </li>
                     <li>
                         <a href="#contact">Contact-Us</a>

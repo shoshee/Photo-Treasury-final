@@ -27,7 +27,7 @@
                     //Detail Availble
                     $row=mysqli_fetch_assoc($res);
 
-                    $food = $row['food'];
+                    $photos = $row['photos'];
                     $price = $row['price'];
                     $qty = $row['qty'];
                     $status = $row['status'];
@@ -55,8 +55,8 @@
         
             <table class="tbl-30">
                 <tr>
-                    <td>Food Name</td>
-                    <td><b> <?php echo $food; ?> </b></td>
+                    <td>photos Name</td>
+                    <td><b> <?php echo $photos; ?> </b></td>
                 </tr>
 
                 <tr>

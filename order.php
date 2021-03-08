@@ -2,14 +2,14 @@
 <?php include('partials-front/menu.php'); ?>
 
     <?php 
-        //CHeck whether food id is set or not
-        if(isset($_GET['food_id']))
+        //CHeck whether photos id is set or not
+        if(isset($_GET['photos_id']))
         {
-            //Get the Food id and details of the selected food
-            $food_id = $_GET['food_id'];
+            //Get the photos id and details of the selected photos
+            $photos_id = $_GET['photos_id'];
 
-            //Get the DEtails of the SElected Food
-            $sql = "SELECT * FROM tbl_food WHERE id=$food_id";
+            //Get the DEtails of the SElected photos
+            $sql = "SELECT * FROM tbl_photo WHERE id=$photos_id";
             //Execute the Query
             $res = mysqli_query($conn, $sql);
             //Count the rows
@@ -27,7 +27,7 @@
             }
             else
             {
-                //Food not Availabe
+                //photos not Availabe
                 //REdirect to Home Page
                 header('location:'.SITEURL);
             }
@@ -39,17 +39,17 @@
         }
     ?>
 
-    <!-- fOOD sEARCH Section Starts Here -->
-    <section class="food-search">
+    <!-- photos sEARCH Section Starts Here -->
+    <section class="photos-search">
         <div class="container">
             
             <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
 
             <form action="" method="POST" class="order">
                 <fieldset>
-                    <legend>Selected Food</legend>
+                    <legend>Selected photos</legend>
 
-                    <div class="food-menu-img">
+                    <div class="photos-menu-img">
                         <?php 
                         
                             //CHeck whether the image is available or not
@@ -62,7 +62,7 @@
                             {
                                 //Image is Available
                                 ?>
-                                <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                <img src="<?php echo SITEURL; ?>images/photos/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
                                 <?php
                             }
                         
@@ -70,11 +70,11 @@
                         
                     </div>
     
-                    <div class="food-menu-desc">
+                    <div class="photos-menu-desc">
                         <h3><?php echo $title; ?></h3>
-                        <input type="hidden" name="food" value="<?php echo $title; ?>">
+                        <input type="hidden" name="photos" value="<?php echo $title; ?>">
 
-                        <p class="food-price">$<?php echo $price; ?></p>
+                        <p class="photos-price">$<?php echo $price; ?></p>
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
 
                         <div class="order-label">Quantity</div>
@@ -110,7 +110,7 @@
                 {
                     // Get all the details from the form
 
-                    $food = $_POST['food'];
+                    $photos = $_POST['photos'];
                     $price = $_POST['price'];
                     $qty = $_POST['qty'];
 
@@ -129,7 +129,7 @@
                     //Save the Order in Databaase
                     //Create SQL to save the data
                     $sql2 = "INSERT INTO tbl_order SET 
-                        food = '$food',
+                        photos = '$photos',
                         price = $price,
                         qty = $qty,
                         total = $total,
@@ -150,13 +150,13 @@
                     if($res2==true)
                     {
                         //Query Executed and Order Saved
-                        $_SESSION['order'] = "<div class='success text-center'>Food Ordered Successfully.</div>";
+                        $_SESSION['order'] = "<div class='success text-center'>photos Ordered Successfully.</div>";
                         header('location:'.SITEURL);
                     }
                     else
                     {
                         //Failed to Save Order
-                        $_SESSION['order'] = "<div class='error text-center'>Failed to Order Food.</div>";
+                        $_SESSION['order'] = "<div class='error text-center'>Failed to Order photos.</div>";
                         header('location:'.SITEURL);
                     }
 
@@ -166,6 +166,6 @@
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
+    <!-- photos sEARCH Section Ends Here -->
 
     <?php include('partials-front/footer.php'); ?>

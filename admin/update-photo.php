@@ -7,15 +7,15 @@
         //Get all the details
         $id = $_GET['id'];
 
-        //SQL Query to Get the Selected Food
-        $sql2 = "SELECT * FROM tbl_food WHERE id=$id";
+        //SQL Query to Get the Selected photos
+        $sql2 = "SELECT * FROM tbl_photo WHERE id=$id";
         //execute the Query
         $res2 = mysqli_query($conn, $sql2);
 
         //Get the value based on query executed
         $row2 = mysqli_fetch_assoc($res2);
 
-        //Get the Individual Values of Selected Food
+        //Get the Individual Values of Selected photos
         $title = $row2['title'];
         $description = $row2['description'];
         $price = $row2['price'];
@@ -27,7 +27,7 @@
     }
     else
     {
-        //Redirect to Manage Food
+        //Redirect to Manage photos
         header('location:'.SITEURL.'admin/manage-photos.php');
     }
 ?>
@@ -35,7 +35,7 @@
 
 <div class="main-content">
     <div class="wrapper">
-        <h1>Update Food</h1>
+        <h1>Update photos</h1>
         <br><br>
 
         <form action="" method="POST" enctype="multipart/form-data">
@@ -76,7 +76,7 @@
                         {
                             //Image Available
                             ?>
-                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="150px">
+                            <img src="<?php echo SITEURL; ?>images/photos/<?php echo $current_image; ?>" width="150px">
                             <?php
                         }
                     ?>
@@ -151,7 +151,7 @@
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
 
-                    <input type="submit" name="submit" value="Update Food" class="btn-secondary">
+                    <input type="submit" name="submit" value="Update photos" class="btn-secondary">
                 </td>
             </tr>
         
@@ -193,11 +193,11 @@
                         //REname the Image
                         $ext = end(explode('.', $image_name)); //Gets the extension of the image
 
-                        $image_name = "Food-Name-".rand(0000, 9999).'.'.$ext; //THis will be renamed image
+                        $image_name = "photos-Name-".rand(0000, 9999).'.'.$ext; //THis will be renamed image
 
                         //Get the Source Path and DEstination PAth
                         $src_path = $_FILES['image']['tmp_name']; //Source Path
-                        $dest_path = "../images/food/".$image_name; //DEstination Path
+                        $dest_path = "../images/photos/".$image_name; //DEstination Path
 
                         //Upload the image
                         $upload = move_uploaded_file($src_path, $dest_path);
@@ -207,7 +207,7 @@
                         {
                             //FAiled to Upload
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload new Image.</div>";
-                            //REdirect to Manage Food 
+                            //REdirect to Manage photos 
                             header('location:'.SITEURL.'admin/manage-photos.php');
                             //Stop the Process
                             die();
@@ -218,7 +218,7 @@
                         {
                             //Current Image is Available
                             //REmove the image
-                            $remove_path = "../images/food/".$current_image;
+                            $remove_path = "../images/photos/".$current_image;
 
                             $remove = unlink($remove_path);
 
@@ -227,7 +227,7 @@
                             {
                                 //failed to remove current image
                                 $_SESSION['remove-failed'] = "<div class='error'>Faile to remove current image.</div>";
-                                //redirect to manage food
+                                //redirect to manage photos
                                 header('location:'.SITEURL.'admin/manage-photos.php');
                                 //stop the process
                                 die();
@@ -246,8 +246,8 @@
 
                 
 
-                //4. Update the Food in Database
-                $sql3 = "UPDATE tbl_food SET 
+                //4. Update the photos in Database
+                $sql3 = "UPDATE tbl_photo SET 
                     title = '$title',
                     description = '$description',
                     price = $price,
@@ -264,14 +264,14 @@
                 //CHeck whether the query is executed or not 
                 if($res3==true)
                 {
-                    //Query Exectued and Food Updated
-                    $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
+                    //Query Exectued and photos Updated
+                    $_SESSION['update'] = "<div class='success'>photos Updated Successfully.</div>";
                     header('location:'.SITEURL.'admin/manage-photos.php');
                 }
                 else
                 {
-                    //Failed to Update Food
-                    $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
+                    //Failed to Update photos
+                    $_SESSION['update'] = "<div class='error'>Failed to Update photos.</div>";
                     header('location:'.SITEURL.'admin/manage-photos.php');
                 }
 

@@ -27,27 +27,27 @@
     ?>
 
 
-    <!-- fOOD sEARCH Section Starts Here -->
-    <section class="food-search text-center">
+    <!-- photos sEARCH Section Starts Here -->
+    <section class="photos-search text-center">
         <div class="container">
             
-            <h2>Foods on <a href="#" class="text-white">"<?php echo $category_title; ?>"</a></h2>
+            <h2>photos on <a href="#" class="text-white">"<?php echo $category_title; ?>"</a></h2>
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
+    <!-- photos sEARCH Section Ends Here -->
 
 
 
-    <!-- fOOD MEnu Section Starts Here -->
-    <section class="food-menu">
+    <!-- photos MEnu Section Starts Here -->
+    <section class="photos-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">photos Menu</h2>
 
             <?php 
             
-                //Create SQL Query to Get foods based on Selected CAtegory
-                $sql2 = "SELECT * FROM tbl_food WHERE category_id=$category_id";
+                //Create SQL Query to Get photoss based on Selected CAtegory
+                $sql2 = "SELECT * FROM tbl_photo WHERE category_id=$category_id";
 
                 //Execute the Query
                 $res2 = mysqli_query($conn, $sql2);
@@ -55,10 +55,10 @@
                 //Count the Rows
                 $count2 = mysqli_num_rows($res2);
 
-                //CHeck whether food is available or not
+                //CHeck whether photos is available or not
                 if($count2>0)
                 {
-                    //Food is Available
+                    //photos is Available
                     while($row2=mysqli_fetch_assoc($res2))
                     {
                         $id = $row2['id'];
@@ -68,8 +68,8 @@
                         $image_name = $row2['image_name'];
                         ?>
                         
-                        <div class="food-menu-box">
-                            <div class="food-menu-img">
+                        <div class="photos-menu-box">
+                            <div class="photos-menu-img">
                                 <?php 
                                     if($image_name=="")
                                     {
@@ -80,22 +80,22 @@
                                     {
                                         //Image Available
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/photos/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
                                 
                             </div>
 
-                            <div class="food-menu-desc">
+                            <div class="photos-menu-desc">
                                 <h4><?php echo $title; ?></h4>
-                                <p class="food-price">$<?php echo $price; ?></p>
-                                <p class="food-detail">
+                                <p class="photos-price">$<?php echo $price; ?></p>
+                                <p class="photos-detail">
                                     <?php echo $description; ?>
                                 </p>
                                 <br>
 
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                                <a href="<?php echo SITEURL; ?>order.php?photos_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
 
@@ -104,8 +104,8 @@
                 }
                 else
                 {
-                    //Food not available
-                    echo "<div class='error'>Food not Available.</div>";
+                    //photos not available
+                    echo "<div class='error'>photos not Available.</div>";
                 }
             
             ?>
@@ -119,6 +119,6 @@
         </div>
 
     </section>
-    <!-- fOOD Menu Section Ends Here -->
+    <!-- photos Menu Section Ends Here -->
 
     <?php include('partials-front/footer.php'); ?>
